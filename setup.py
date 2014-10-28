@@ -3,7 +3,10 @@ from Cython.Build import cythonize
 
 # Cython extensions
 sources = ["FastxIO/fastx.pyx", "FastxIO/reverse_complement.c"]
-extensions = [Extension("FastxIO.fastx", sources, extra_compile_args=['-O3'])]
+extensions = [Extension("FastxIO.fastx",
+                        sources,
+                        extra_compile_args=['-O3'],
+                        libraries=["z"])]
 
 setup(
     name = "FastxIO",
@@ -17,5 +20,3 @@ setup(
         'cython'
         ],
 )
-
-
