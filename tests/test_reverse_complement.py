@@ -22,8 +22,7 @@ class TestReverseComplement(unittest.TestCase):
         rv_record = record3.reverseComplement()
         self.assertEqual(rv_record.sequence, "AAAAA")
 
-        with self.assertRaises(StopIteration):
-            reader.next()
+        self.assertRaises(StopIteration, reader.next)
 
     def test_fasta_rc(self):
         reader = fastx.FastaReader(self.iupac_fasta)

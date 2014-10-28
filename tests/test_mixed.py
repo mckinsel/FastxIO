@@ -34,8 +34,7 @@ class TestMixed(unittest.TestCase):
         self.assertEqual(rec.sequence, "CTATACATGACTCTGC")
         self.assertEqual(rec.quality, "")
 
-        with self.assertRaises(StopIteration):
-            reader.next()
+        self.assertRaises(StopIteration, reader.next)
 
     def test_mixed(self):
         reader = fastx.FastxReader(self.mixed_file)
